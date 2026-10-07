@@ -1,0 +1,202 @@
+<!-- essa página é para apresentar a ONG-->
+<!DOCTYPE html>
+<html lang = "pt-br">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0" >
+   
+    <title> ajude o próximo </title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>    
+
+
+<body>
+    <div class="container">
+        <header> <!-- define o cabeçario da página geralmente contém -->
+            <div class="header-container">
+                <img src="../imagens/logo.png" alt="logo: imagem em 2D do planeta sobre um par de mãos e texto:ajuda humanitária" 
+                title="logo da empresa"> 
+                <h1>ajude o próximo </h1>
+                
+                <!-- menu responsivo com vertente de submenus com dropdown-->
+                <!--icone de amburguer para breakpoints menores-->
+                
+                <!--controle do menu responsivo (hamburguer/breakpoints menores)-->
+                <input type="checkbox" id="menu">
+                <label for="menu" class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+               </label>
+                
+                <nav> <!-- usado para criar menus de navegação -->
+                    <ul class="menu">
+
+                        <li><a href = "#inicio"> início </a></li> 
+                        <li><a href = "#contatos"> contatos </a></li>
+                        
+                        <!--dropdown-->
+                        <li class="dropdown">
+                            <input type="checkbox" id="menu-projetos">
+                            <label for="menu-projetos" class="dropdown-button">
+                                projetos
+                            </label>
+
+                            <ul class="submenu">
+                                <li> <a href = "#projeto" > nossos projetos </a> </li>
+                                <li> <a href = "#secao-futura"> em produção </a> </li>
+                                <li> <a href = "#secao-futura-2"> em produção </a> </li>
+                            </ul>
+                        </li>
+                        
+                        <li><a href = "#cadastro"> cadastre-se </a> </li>
+                        <li><a href = "#sobre"> sobre nós </a> </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="conteudo"> <!--identifica o conteúdo principal da página-->
+            
+            <section id="inicio">
+                <div class="inicio-container">
+                    <div class="inicio-texto">
+                        <h2> Olá, seja bem-vindo a nossa ONG ajude o próximo </h2>
+            
+                        <p>
+                            Nosso principal foco é transformar a vida das pessoas, ajudar aquele que precisa.
+                            Confira nossos projetos, e cadastre-se para fazer parte da mudança. 
+                        </p>
+                    </div>
+
+                    <div class="inicio-imagem">
+                        <img src="../imagens/ong.jpg"   
+                        alt="Mãos de várias pessoas, com as palmas voltadas para cima, unidas em círculo em um gesto de cooperação e
+                        solidariedade; a composição transmite acolhimento e esperança. Não há texto visível na imagem." title="imagem de referência.">
+                    </div>    
+                </div>
+
+            </section>
+            <section id="contatos">
+                <div class="contatos-container">
+                    <div class="contatos-textos">
+                        <h2> Entre em contato ou cadastre-se para sempre receber noticias </h2>
+                        <p>número: (01) 23456-7891</p>
+                        <p>e-mail: ajudeoproximo@exemplo.com</p>
+                    </div>
+
+                    <div class="contatos-botao">
+                        <a href="#cadastro"> Faça seu cadastro </a>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+        <template id="template-cadastro">
+            <h1> Formulário de cadastro </h1>
+                <form>
+
+                    <fieldset>
+                        <legend> Dados de cadastro. </legend>
+
+                        <label for="nome">Nome Completo.</label>
+                        <input type="text" id="nome" name="nome" placeholder="digite seu nome" title="formato:João Alves" required>
+                    
+                        <label for="email">E-mail.</label>
+                        <input type="email" id="email" name="email" placeholder="exemplo@exemplo.com" title="exemplo@exemplo.com" required>
+
+                        <labeL for="datansc">Data de Nascimento.</labeL>
+                        <input type="date" id="datansc" name="idade" title="00/00/00" required>
+
+                        <label for="cpf"> CPF </label>
+                        <input type="text" id="cpf" name="cpf" maxlength="14" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" 
+                        placeholder="000.000.000-00" title="Formato: 000.000.000-00" required>
+                    
+                        <label for="celular"> número de celular.</label>
+                        <input type="tel" id="celular" name="celular" maxlength="14" pattern="\[1-9]{2}\ [0-9]{4}-[0-9]{4}" 
+                        placeholder="00 1234-6789" title="Formato:00 0000-0000" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend> Informações de Endereço .</legend>
+                        <label for="cep"> CEP.</label>
+                        <input type="text" id="cep" name="CEP" maxlength="9" pattern="[0-9]{5}-[0-9]{3}"
+                        placeholder="00000-000" title="Formato: 00000-000" required>
+
+                        <label for="endereco"> Endereço.</label>
+                        <input type="text" id="endereco" name="endereço">
+
+                        <label for="numerocasa">Número da casa ou apartamento.</label>
+                        <input type="number" id="numerocasa" name="numero">
+
+                        <label for="cidade">Cidade.</label>
+                        <input type="text" id="cidade" name="cidade" required>
+
+                        <label for="estado">Estado.</label>
+                        <input type="text" id="estado" name="sigla" maxlength="2" placeholder="  " required>
+
+                        <button type="submit"> enviar cadastro </button>
+
+                        <div class="toast" role="status">
+                            Cadastro enviado com sucesso!
+                        </div>
+                    </fieldset>
+                </form>
+            </template>   
+            <template id="template-projetos">        
+                <section>
+                    <h2> projetos e ações  </h2>
+                    <p> Conheça as principais iniciativas desenvolvidas por nossa Ong.</p>
+                </section>
+                
+                <div class="projetos-container">
+                    <article class="card-projeto">
+                    
+                        <span class="badge">Doações</span>
+                        <h2> Doações </h2>
+                        <p> As doações contribuem para a manutenção das atividades da ong.</p>
+
+                        <ul>
+                            <li>Doação de alimentos.</li>
+                            <li>Doação de roupas.</li>
+                            <li>Ajuda em desastres.</li>
+                            <li>Projetos de aprimoramento.</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="card-projeto">
+                        <h2>Voluntários </h2>
+                        <p> Os nobres voluntários são o motor principal para que nossas atividades continue
+                            impactando sobre a vida de quem mais precisa e o benefícioo é bem mais que a satisfação             
+                            de ajudar ao próximo.
+                        </p>
+                        <ul>
+                            <li> Participação em eventos</li>
+                            <li> Auxilio em campanhas </li>
+                            <li> Participação em ações voluntárias </li>
+                        </ul>
+                        <a href="cadastro.html">Cadastre-se para doar.</a>
+
+                    </article>
+
+                    <article class="card-projeto">
+                        <div class="alerta">
+                            <strong> Atenção </strong>
+                            Novas campanhas de arecadação divulgadas em breve...
+                        </div>
+                        <h2> Campanhas </h2>
+                        <p> nesse campo deverá adicionar as campanhas e matérial de propaganda das ações já
+                            realizadas pela ONG.
+                        </p>
+                    </article>
+    </template>
+    
+        <footer> 
+            <p> rodapé </p>
+            <!-- rodapé da página geralmente com informações de copyright -->
+        </footer> 
+    </div>
+    <script type="module" src="../javascript/main.js"></script>
+</body>
+</html>
