@@ -1,0 +1,558 @@
+:root{
+    /* cores principais */
+    --cor-primaria:#022950;
+    --cor-primaria-clara: #f1a289;
+    --cor-primaria-escura:#00072c;
+
+    --cor-secundaria:#092c00;
+    --cor-secundaria-clara:#b0f5c4;
+
+    --cor-fundo:#ffffff;
+    --cor-fundo-secao:#cce1f1;
+    --cor-texto:#000000;
+    --cor-texto-secundario:#fcfcfc;
+
+    /* fontes */
+
+    --fonte-principal: Arial, sans-serif;
+
+    /* tipográfia*/
+
+    --espaco-1: 0.25rem;
+    --espaco-2: 0.5rem;
+    --espaco-3: 0.75rem;
+    --espaco-4: 1.0rem;
+    --espaco-6: 1.5rem;
+    --espaco-8: 2.0rem;
+
+}   
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-principal);
+}
+
+body.modo-escuro {
+    --cor-primaria:#022950;
+    --cor-primaria-clara: #f1a289;
+    --cor-primaria-escura:#00072c;
+
+    --cor-secundaria:#092c00;
+    --cor-secundaria-clara:#b0f5c4;
+
+    --cor-fundo:#000000;
+    --cor-fundo-secao:#1a1a1a;
+    --cor-texto:#ffffff;
+    --cor-texto-secundario:#fcfcfc;
+}
+/*aplicação de css grid ditando areas macrosociais onde serão alocados os elementos*/
+/*contempalndo 12 colunas que possibilite variação de visualização nos dispositivos dos usuários*/
+/*construir 5 breakpoints adaptativos ao código usando a declaração @media */
+
+.container {
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: 
+    "header header header header header header header header header header header header"
+    "main main main main main main main main main main main main"
+    "footer footer footer footer footer footer footer footer footer footer footer footer";
+
+    gap: var(--espaco-8);
+}
+
+    /* definição de qual campo vai ocupar as áreas do grid */
+
+header{
+    grid-area: header;
+}
+main {
+    grid-area: main;
+}
+footer {
+    grid-area:footer;
+}
+
+.header-container { 
+    display: flex; 
+    flex-direction: row; /*propriedade de direção do container*/
+    flex-wrap: wrap; /*propriedade que define a quebra de linhas quando não há espaço para visualizar*/
+    justify-content: space-between; /*define o alinhamento ao longo do exio*/
+    align-items: center; /*define o alinhamento ao eixo contrário ao anterior */
+    gap: var(--espaco-3);
+    border: #000000 solid 2px;
+}
+
+header img {
+    width:80px;
+    height: auto;
+}
+
+/* estilização do menu */
+.menu{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    gap:var(--espaco-6);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* aplica estilo aos elementos <a> do menu*/
+.menu a {
+    text-decoration: none;
+    color: var(--cor-texto);
+} 
+
+/*dropdown*/
+.dropdown {
+    position: relative;
+}
+
+
+.dropdown-button {
+    cursor: pointer;
+}
+
+/*estilização de submenu*/
+.submenu {
+    display: none; /* ira esconder o submenu */
+    position:absolute ; /*define a posição do submenu, em relação a o .projetos*/
+    top:100%; /* posição vertical do menu abaixo de "projetos"*/
+    left: 0; /*os elementos começam á esquerda*/
+    min-width: 180px; /*largura mínima para não para não ficar muito estreito*/
+    list-style: none; /* remove o aspecto de lista os marcadores*/
+    padding: 0; /*remove espaçamento interno padrão da lista assim o sbmenu começa mais perto da borda */
+    margin: 0; /*remove a margem externa padrão melhor para deixar na posição que já defini*/
+}
+
+.dropdown-button[aria-expanded="true"] + .submenu {
+    display: block; /* quando o botão estiver expandido o submenu será exibido */
+}
+
+/*links dentro do submenu*/
+.submenu a {
+    display: block; /*faz o link do elemento ficar como um bloco assim ocupando toda área*/
+    padding: var(--espaco-2); /* não deixa o texto colado nas bordas */
+}
+
+
+/* agora iniciar a base do menu hamburguer escondendo os checkbox e icone para estilização posterior no @media*/
+
+#menu { /* seletor de id para o input do tipo checkbox com nome "menu"*/
+    display: none; /* display controla como o elemento é exibido, o none indica que ele não será mostrado*/
+}
+
+.menu-icon{ /* seleciona uma classe do código html no caso a clase que contem o <label> que forma o menu de icone de hamburguer*/
+    display: none; /* utilizando novamente o none pois esse icone inicialmente será visivel apenas em telas menores tendo seu 
+    estilo feito dentro do breackpoint indicado*/
+}
+
+
+.inicio-container {
+    display:flex;
+    flex-flow: column wrap; /*abreviação para duas propriedades o o flex-direction e flex-warp */ 
+    justify-content: space-between; 
+    align-items: center;
+    gap: var(--espaco-3);
+    
+}
+
+
+.inicio-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: safe center;
+    flex-wrap: wrap;
+    border: var(--cor-texto) solid 2px;
+}
+
+.inicio-imagem {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: safe center;
+    gap: var(--espaco-3);
+}
+
+.contatos-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    border: var(--cor-texto) solid 2px;
+}
+
+.contatos-textos {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+
+}
+
+.contatos-botao {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: var(--cor-texto) solid 2px;
+}
+
+
+/* BREAKPOIN 1 celulares pequenos */
+
+@media (max-width: 480px) {
+
+    .container {
+
+        grid-template-areas: 
+        "header header header header header header header header header header header header"
+        "main main main main main main main main main main main main "
+        "footer footer footer footer footer footer footer footer footer footer footer footer";
+
+    }    
+}
+
+/* BREAKPOIN 2 celulares */
+
+@media (max-width: 767px) {
+
+    .container {
+
+        grid-template-areas: 
+        "header header header header header header header header header header header header"
+        "main main main main main main main main main main main main "
+        "footer footer footer footer footer footer footer footer footer footer footer footer";
+    }
+
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .inicio-container {
+        flex-direction: column;
+        justify-content: safe center;
+        align-items: center;
+    }
+
+/** regras de estilo de menu de navegação que serão aplicadas apenas quando usuário estiver com um dispositivo com 
+telas menores*/
+.menu-icon { /* seleciona a classe correspondente ao menu de amburguer para sua estilização*/
+    display: flex; /*transforma em um flexbox permitindo organizar os 3 spans*/
+    flex-direction: column; /*define a direção do flexbox colocando os spans em 3 colunas*/
+    justify-content: space-between; /* distibui os spans no espaçõ indicado colocando espaços entre eles */
+
+    /*definições de altura e largura*/
+    width: 30px;
+    height: 24px;
+
+    cursor: pointer; /*indica que o icone pode ser clicado fazendo o cursor do mouse mudar ao passar sobre */
+}
+
+/* estilização de elementos spans dentro do icone do menu para deixar com um aspecto melhor*/
+.menu-icon span {
+    display: block; /* transforma em um bloco*/
+
+    /* define altura largura e cor*/
+    width: 30px;
+    height: 3px;
+
+    background-color: var(--cor-texto);
+}
+
+/* selecionando o navegador dentro do header para esconder os elementos dentro do icone*/
+ header nav{
+    display: none; /* esconde os elementos dentro do icone*/
+    width:100%;/* faz quando aparecer, que os elementos ocupem todo o espaço disponível*/
+
+ }
+
+ #menu:checked ~nav { /* sleciona o id de nome menu a pseudo classe verifica se esta marcado,caso esteja ele mostra então o seu irmão 
+    posterior visto anteriormente */
+    display: flex;
+ }
+
+.menu { /*seletor da classe menu */
+    flex-direction: column; /* indica o sentido de direção das informações como colunas verticalmente*/
+    width: 100%; /* faz com que os elementos ocupem o espaço total disponivel*/
+}
+
+.menu li { /* seleciona cada list item dentro do menu */
+    width: 100%; /* faz cada item ocupar a largura disponivel*/
+}
+
+.menu a { /* seleciona cada item a do menu*/
+    display: block; /*faz o link ocupar uma área maior*/
+    padding: var(--espaco-2); /*cria um espaçõ interno ao redor do texto*/
+}
+
+/*modificando o droptown em telas menores */
+
+.submenu {
+    position: static; /*faz o submenu voltar ao fluxo normal da pagina aparecendo como parte da própria lista*/
+    width:100%; /* faz ocupar toda largura disponível */
+    border: none; /*remove a borda colocada anteriormente deixando mais integrado ao menu quando em dispositivos menores*/
+}
+
+}
+
+/* BREAKPOIN 3 tablets */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .container {
+
+        grid-template-areas: 
+        "header header header header header header header header header header header header"
+        ". main main main main main main main main main main . "
+        "footer footer footer footer footer footer footer footer footer footer footer footer";
+    }
+
+}
+
+/* BREAKPOIN 4 notebooks */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    .container {
+    
+        grid-template-areas: 
+        "header header header header header header header header header header header header"
+        ". main main main main main main main main main main . "
+        "footer footer footer footer footer footer footer footer footer footer footer footer";
+    }
+    
+}
+
+/* BREAKPOIN 5 desktops  */
+
+@media (min-width: 1200px) {
+
+    .container {
+    
+        grid-template-areas: 
+        "header header header header header header header header header header header header"
+        "main main main main main main main main main main main main  "
+        "footer footer footer footer footer footer footer footer footer footer footer footer";
+    }
+   
+}
+
+
+/* formulário de cadastro stilos css*/
+
+/* FORMULÁRIO DE CADASTRO */
+
+form {/* seleciona a tag html do formulário e adicionará a essa tag todas as propridedades a seguir*/
+    display: flex; /* transforma em um container flex box*/
+    flex-direction: column; /* define a direção dos itens no flexbox como colunas*/
+    gap: var(--espaco-6); /*cria espaço entre os elementos*/
+    max-width: 700px; /*define a largura máxima evitando ficar largo em telas grandes*/
+    margin: 0 auto; /* centraliza o formulário pois as margens inferiores e superiores ficam zero e as laterais de forma automatica*/
+    padding: var(--espaco-8); /*cria espaço interno  entre a borda do formulário e o conteúdo*/
+    background-color: var(--cor-fundo-secao);
+}
+
+/* configurações de esilo dos elemento fieldset*/
+fieldset {
+    display: flex; /* com isso transformei cada fieldset em um flexbox*/
+    flex-direction: column; /* com isso coloquei cada elemento como nome, número entre outros um abaixo do outro*/
+    gap: var(--espaco-2);
+    padding: var(--espaco-6);
+    border: 2px solid var(--cor-primaria-escura); /* bordas nos elementos do fieldset*/
+    border-radius: 8px; /* esse elemento arredonda as bordas*/
+}
+
+/* estilização para labels campos de "titulos" de cada dado a ser adicionado*/
+
+label{ /*vai estilizar todos os labels do formulário de cadastro*/
+    font-weight: bold; /*deixa o texto em negrito */
+}
+
+input { /* seleciona todos os campos de input do código*/
+    width: 100%;
+    padding: var(--espaco-2);
+    box-sizing: border-box; /*faz com que a largura anteriormente compreenda padding e borda*/
+    border: 1px solid var(--cor-secundaria);
+    border-radius: 5px;
+    font-family: var(--fonte-principal);
+}
+
+/* INTERAÇÃO COM CAMPOS*/
+
+input:focus { /*:focus uma pseudo-classe ativada quando o usuário seleciona um campo*/
+    outline: 3px solid var(--cor-texto);
+    outline-offset: 2px;
+}
+
+input:valid {/*pseudo-classe aplicada quando o campo atende as regras de validação*/ 
+    border-color:green; /* quando válido borda do campo fica verde*/
+}
+
+/* esse códico faz o mesmo que o anterior mas no caso de uma opção inválida*/
+
+input:user-invalid { 
+    border-color: red;
+}
+
+button { /* aqui selecionamos o botão para realizar sua estilização*/
+    padding: var(--espaco-3);
+    border: none; /*remove as bordas padrão do botão*/
+    border-radius: 5px;
+    background-color: var(--cor-primaria); /*define a cor de fundo do botão*/
+    color:var(--cor-texto-secundario); /*define e cor do texto do botão */
+    cursor: pointer;
+    font-family: var(--fonte-principal);
+    transition: 0.3s; /*faz mudança visual acontecer mais suavemente*/
+}
+
+/*trocar a cor do botão quando usuário passa o mouse sobre*/
+
+button:hover { /* acionado quando o mouse passa sobre o botão*/
+    background-color: var(--cor-secundaria  );
+}
+
+/* para navegação por teclado*/
+button:focus {
+    outline: 3px solid var(--cor-texto);
+    outline-offset: 2px;
+}
+/*dimunuir ligeiramente o botão quando ele for ativado*/
+
+button:active {
+    transform: scale(0.98); 
+}
+
+button:disabled {
+    opacity: 0.5; /*quando botão disabilitado fica com 50% de opacidade*/
+    cursor: not-allowed; /*muda cursos para indicar que ação não pode ser feita*/
+}
+
+/*cards projetos.html*/
+/* CONTAINER DOS CARTÕES */
+
+.projetos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--espaco-6);
+    margin-top: var(--espaco-6);
+}
+
+
+/* CARTÃO */
+
+.card-projeto {
+    display: flex;
+    flex-direction: column;
+
+    width: 300px;
+    min-height: 300px;
+
+    padding: var(--espaco-6);
+
+    background-color: var(--cor-fundo-secao);
+
+    border: 2px solid var(--cor-primaria);
+    border-radius: 10px;
+
+    box-sizing: border-box;
+}
+
+
+/* TÍTULO DO CARTÃO */
+
+.card-projeto h2 {
+    margin-top: 0;
+    color: var(--cor-primaria);
+}
+
+
+/* LISTA DO CARTÃO */
+
+.card-projeto ul {
+    padding-left: 20px;
+}
+
+
+/* LINK DO CARTÃO */
+
+.card-projeto a {
+    margin-top: auto;
+
+    padding: var(--espaco-2);
+
+    text-align: center;
+
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-secundario);
+
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+/* EFEITO AO PASSAR O MOUSE */
+
+.card-projeto:hover {
+    transform: translateY(-5px);
+}
+
+/* FEEDBACK */
+
+.toast {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    padding: var(--espaco-4);
+
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-secundario);
+
+    border-radius: 8px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.badge {
+    display: inline-block;
+    width: fit-content;
+
+    padding: var(--espaco-1) var(--espaco-3);
+
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-secundario);
+
+    border-radius: 20px;
+
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.alerta {
+    padding: var(--espaco-4);
+    margin: var(--espaco-6) 0;
+
+    border: 2px solid var(--cor-primaria-clara);
+    border-radius: 8px;
+
+    background-color: var(--cor-fundo-secao);
+    color: var(--cor-texto);
+
+    font-weight: bold;
+}

@@ -11,11 +11,11 @@
 </head>    
 
 
-<body>
+<body class="body">
     <div class="container">
         <header> <!-- define o cabeçario da página geralmente contém -->
             <div class="header-container">
-                <img src="../imagens/logo.png" alt="logo: imagem em 2D do planeta sobre um par de mãos e texto:ajuda humanitária" 
+                <img src="../imagens/logo.webp" alt="logo: imagem em 2D do planeta sobre um par de mãos e texto:ajuda humanitária" 
                 title="logo da empresa"> 
                 <h1>ajude o próximo </h1>
                 
@@ -23,13 +23,16 @@
                 <!--icone de amburguer para breakpoints menores-->
                 
                 <!--controle do menu responsivo (hamburguer/breakpoints menores)-->
-                <input type="checkbox" id="menu">
-                <label for="menu" class="menu-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-               </label>
-                
+                <input type="checkbox" id="menu">    
+                    <label for="menu" class="menu-icon"> 
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+
+                <button type="button" id="botao-tema">
+                    modo escuro
+                </button>
                 <nav> <!-- usado para criar menus de navegação -->
                     <ul class="menu">
 
@@ -38,12 +41,12 @@
                         
                         <!--dropdown-->
                         <li class="dropdown">
-                            <input type="checkbox" id="menu-projetos">
-                            <label for="menu-projetos" class="dropdown-button">
-                                projetos
-                            </label>
+                            <button type="button" class="dropdown-button" aria-expanded="false" aria-controls="submenu-projetos">
+                            projetos
+                            </button>
 
-                            <ul class="submenu">
+                        
+                            <ul id="submenu-projetos" class="submenu">
                                 <li> <a href = "#projeto" > nossos projetos </a> </li>
                                 <li> <a href = "#secao-futura"> em produção </a> </li>
                                 <li> <a href = "#secao-futura-2"> em produção </a> </li>
@@ -190,6 +193,7 @@
                             realizadas pela ONG.
                         </p>
                     </article>
+                </div>    
     </template>
     
         <footer> 

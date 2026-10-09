@@ -1,0 +1,29 @@
+{
+  "name": "versionamento-projeto-ong",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Levifreires/projeto-ong.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Levifreires/projeto-ong/issues"
+  },
+  "homepage": "https://github.com/Levifreires/projeto-ong#readme",
+  "devDependencies": {
+    "vite": "^8.3.4"
+  },
+  "dependencies": {
+    "imask": "^7.6.1"
+  }
+}
